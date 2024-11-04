@@ -1,3 +1,4 @@
+// content.js
 let activeMenu = null;
 
 // Add custom styles to the page
@@ -30,6 +31,17 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Define form fields we want to show in the menu
+const formFields = [
+    'firstName',
+    'lastName',
+    'email',
+    'linkedin',
+    'website',
+    'address',
+    'zipcode'
+];
+
 // Function to create and show menu
 function showAutoFillMenu(input) {
     // Remove any existing menu
@@ -48,7 +60,7 @@ function showAutoFillMenu(input) {
     menu.style.left = `${window.scrollX + rect.left}px`;
 
     // Get saved data and create menu items
-    chrome.storage.local.get(null, function(data) {
+    chrome.storage.local.get(formFields, function(data) {
         if (Object.keys(data).length === 0) {
             const emptyItem = document.createElement('div');
             emptyItem.className = 'auto-fill-item';
@@ -56,7 +68,7 @@ function showAutoFillMenu(input) {
             menu.appendChild(emptyItem);
         } else {
             Object.entries(data).forEach(([key, value]) => {
-                if (value) { // Only show non-empty values
+                if (value && formFields.includes(key)) { // Only show form field values
                     const item = document.createElement('div');
                     item.className = 'auto-fill-item';
                     

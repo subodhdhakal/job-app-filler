@@ -6,19 +6,70 @@
         body {
             width: 300px;
             padding: 10px;
+            transition: all 0.3s ease;
         }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            border: none;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
         .form-group {
             margin-bottom: 10px;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
         }
+
         input {
             width: 100%;
-            padding: 5px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
-        button {
+
+        .dark-mode input {
+            background-color: #333;
+            border-color: #444;
+            color: white;
+        }
+
+        .dark-mode input:focus {
+            border-color: #666;
+            outline: none;
+        }
+
+        button#saveButton {
             width: 100%;
             padding: 8px;
             background-color: #4CAF50;
@@ -26,14 +77,60 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
+
+        button#saveButton:hover {
             background-color: #45a049;
+        }
+
+        .dark-mode button#saveButton {
+            background-color: #45a049;
+        }
+
+        .dark-mode button#saveButton:hover {
+            background-color: #4CAF50;
+        }
+
+        .moon-icon, .sun-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .dark-mode .moon-icon {
+            display: none;
+        }
+
+        .sun-icon {
+            display: none;
+        }
+
+        .dark-mode .sun-icon {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h2>Job Application Info</h2>
+    <div class="header">
+        <h2>Job Application Info</h2>
+        <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+            <svg class="moon-icon" viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg class="sun-icon" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+        </button>
+    </div>
     <div class="form-group">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" />

@@ -1,5 +1,19 @@
-// popup.js
 document.addEventListener('DOMContentLoaded', function() {
+    // Load theme preference
+    chrome.storage.local.get('darkMode', function(result) {
+        if (result.darkMode) {
+            document.body.classList.add('dark-mode');
+        }
+    });
+
+    // Theme toggle functionality
+    document.getElementById('themeToggle').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        chrome.storage.local.set({
+            darkMode: document.body.classList.contains('dark-mode')
+        });
+    });
+
     // Load saved data when popup opens
     chrome.storage.local.get([
         'firstName',
