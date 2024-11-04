@@ -98,15 +98,6 @@ function showAutoFillMenu(input) {
     document.body.appendChild(menu);
 }
 
-// Show menu on right-click of input fields
-document.addEventListener('contextmenu', function(e) {
-    const input = e.target;
-    if (input.tagName === 'INPUT' && input.type !== 'submit' && input.type !== 'button') {
-        e.preventDefault(); // Prevent default context menu
-        showAutoFillMenu(input);
-    }
-});
-
 // Show menu on double-click of input fields
 document.addEventListener('dblclick', function(e) {
     const input = e.target;
