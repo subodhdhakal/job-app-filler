@@ -92,23 +92,30 @@
             background-color: #4CAF50;
         }
 
+        /* Updated icon styles */
         .moon-icon, .sun-icon {
             width: 20px;
             height: 20px;
-            fill: currentColor;
+            fill: none;
+            stroke: #333;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .dark-mode .moon-icon {
             display: none;
         }
 
+        .dark-mode .sun-icon {
+            display: block;
+            stroke: #fff; /* White color in dark mode */
+        }
+
         .sun-icon {
             display: none;
         }
 
-        .dark-mode .sun-icon {
-            display: block;
-        }
     </style>
 </head>
 <body>
