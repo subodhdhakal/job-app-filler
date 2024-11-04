@@ -10,7 +10,7 @@
     ],
     "action": {
         "default_popup": "popup.html",
-        "default_icon": "auto-filler-icon.webp"
+        "default_icon": "images/auto-filler-icon.png"
     },
     "content_scripts": [
         {
