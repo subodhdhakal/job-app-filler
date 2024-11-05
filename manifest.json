@@ -11,17 +11,17 @@
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
-            "16": "images/auto-filler-icon.png",
-            "32": "images/auto-filler-icon.png",
-            "48": "images/auto-filler-icon.png",
-            "128": "images/auto-filler-icon.png"
+            "16": "assets/images/auto-filler-icon.png",
+            "32": "assets/images/auto-filler-icon.png",
+            "48": "assets/images/auto-filler-icon.png",
+            "128": "assets/images/auto-filler-icon.png"
         }
     },
     "icons": {
-        "16": "images/auto-filler-icon.png",
-        "32": "images/auto-filler-icon.png",
-        "48": "images/auto-filler-icon.png",
-        "128": "images/auto-filler-icon.png"
+        "16": "assets/images/auto-filler-icon.png",
+        "32": "assets/images/auto-filler-icon.png",
+        "48": "assets/images/auto-filler-icon.png",
+        "128": "assets/images/auto-filler-icon.png"
     },
     "content_scripts": [
         {
