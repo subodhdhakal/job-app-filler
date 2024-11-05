@@ -1,4 +1,3 @@
-// content.js
 let activeMenu = null;
 
 // Add custom styles to the page
@@ -31,15 +30,18 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Define form fields we want to show in the menu
+// Define form fields in the desired order with display names
 const formFields = [
-    'firstName',
-    'lastName',
-    'email',
-    'linkedin',
-    'website',
-    'address',
-    'zipcode'
+    { key: 'firstName', label: 'First Name' },
+    { key: 'lastName', label: 'Last Name' },
+    { key: 'email', label: 'Email' },
+    { key: 'phone', label: 'Phone' },
+    { key: 'linkedin', label: 'LinkedIn' },
+    { key: 'github', label: 'GitHub' },
+    { key: 'website', label: 'Website' },
+    { key: 'address', label: 'Address' },
+    { key: 'city', label: 'City' },
+    { key: 'zipcode', label: 'Zip Code' }
 ];
 
 // Function to create and show menu
@@ -59,36 +61,37 @@ function showAutoFillMenu(input) {
     menu.style.top = `${window.scrollY + rect.bottom + 5}px`;
     menu.style.left = `${window.scrollX + rect.left}px`;
 
-    // Get saved data and create menu items
-    chrome.storage.local.get(formFields, function(data) {
+    // Get saved data and create menu items in the defined order
+    chrome.storage.local.get(formFields.map(field => field.key), function(data) {
         if (Object.keys(data).length === 0) {
             const emptyItem = document.createElement('div');
             emptyItem.className = 'auto-fill-item';
             emptyItem.textContent = 'No saved data. Click extension icon to add data.';
             menu.appendChild(emptyItem);
         } else {
-            Object.entries(data).forEach(([key, value]) => {
-                if (value && formFields.includes(key)) { // Only show form field values
+            formFields.forEach(({ key, label }) => {
+                const value = data[key];
+                if (value) {
                     const item = document.createElement('div');
                     item.className = 'auto-fill-item';
-                    
-                    const label = document.createElement('span');
-                    label.className = 'auto-fill-label';
-                    label.textContent = key.replace(/([A-Z])/g, ' $1').toLowerCase() + ':';
-                    
+
+                    const labelSpan = document.createElement('span');
+                    labelSpan.className = 'auto-fill-label';
+                    labelSpan.textContent = `${label}:`;
+
                     const valueSpan = document.createElement('span');
                     valueSpan.textContent = value;
-                    
-                    item.appendChild(label);
+
+                    item.appendChild(labelSpan);
                     item.appendChild(valueSpan);
-                    
+
                     item.addEventListener('click', function() {
                         input.value = value;
                         input.dispatchEvent(new Event('input', { bubbles: true }));
                         menu.remove();
                         activeMenu = null;
                     });
-                    
+
                     menu.appendChild(item);
                 }
             });

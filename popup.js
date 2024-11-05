@@ -19,17 +19,23 @@ document.addEventListener('DOMContentLoaded', function() {
         'firstName',
         'lastName',
         'email',
+        'phone',
         'linkedin',
+        'github',
         'website',
         'address',
+        'city',
         'zipcode'
     ], function(result) {
         document.getElementById('firstName').value = result.firstName || '';
         document.getElementById('lastName').value = result.lastName || '';
         document.getElementById('email').value = result.email || '';
+        document.getElementById('phone').value = result.phone || '';
         document.getElementById('linkedin').value = result.linkedin || '';
+        document.getElementById('github').value = result.github || '';
         document.getElementById('website').value = result.website || '';
         document.getElementById('address').value = result.address || '';
+        document.getElementById('city').value = result.city || '';
         document.getElementById('zipcode').value = result.zipcode || '';
     });
 
@@ -39,9 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
             email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
             linkedin: document.getElementById('linkedin').value,
+            github: document.getElementById('github').value,
             website: document.getElementById('website').value,
             address: document.getElementById('address').value,
+            city: document.getElementById('city').value,
             zipcode: document.getElementById('zipcode').value
         };
 

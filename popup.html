@@ -92,7 +92,6 @@
             background-color: #4CAF50;
         }
 
-        /* Updated icon styles */
         .moon-icon, .sun-icon {
             width: 20px;
             height: 20px;
@@ -109,13 +108,12 @@
 
         .dark-mode .sun-icon {
             display: block;
-            stroke: #fff; /* White color in dark mode */
+            stroke: #fff;
         }
 
         .sun-icon {
             display: none;
         }
-
     </style>
 </head>
 <body>
@@ -151,8 +149,16 @@
         <input type="email" id="email" />
     </div>
     <div class="form-group">
-        <label for="linkedin">LinkedIn URL:</label>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" />
+    </div>
+    <div class="form-group">
+        <label for="linkedin">LinkedIn:</label>
         <input type="url" id="linkedin" />
+    </div>
+    <div class="form-group">
+        <label for="github">GitHub:</label>
+        <input type="url" id="github" />
     </div>
     <div class="form-group">
         <label for="website">Website:</label>
@@ -163,7 +169,11 @@
         <input type="text" id="address" />
     </div>
     <div class="form-group">
-        <label for="zipcode">Zipcode:</label>
+        <label for="city">City:</label>
+        <input type="text" id="city" />
+    </div>
+    <div class="form-group">
+        <label for="zipcode">Zip Code:</label>
         <input type="text" id="zipcode" />
     </div>
     <button id="saveButton">Save Information</button>
