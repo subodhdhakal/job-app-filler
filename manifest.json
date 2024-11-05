@@ -10,7 +10,18 @@
     ],
     "action": {
         "default_popup": "popup.html",
-        "default_icon": "images/auto-filler-icon.png"
+        "default_icon": {
+            "16": "images/auto-filler-icon.png",
+            "32": "images/auto-filler-icon.png",
+            "48": "images/auto-filler-icon.png",
+            "128": "images/auto-filler-icon.png"
+        }
+    },
+    "icons": {
+        "16": "images/auto-filler-icon.png",
+        "32": "images/auto-filler-icon.png",
+        "48": "images/auto-filler-icon.png",
+        "128": "images/auto-filler-icon.png"
     },
     "content_scripts": [
         {
