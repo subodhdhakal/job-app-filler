@@ -62,6 +62,7 @@ function showAutoFillMenu(input) {
     menu.style.left = `${window.scrollX + rect.left}px`;
 
     // Get saved data and create menu items in the defined order
+    if(!chrome.storage || !chrome.storage.local) return; // Check if chrome local storage is accessible (trying to prevent NPE)
     chrome.storage.local.get(formFields.map(field => field.key), function(data) {
         if (Object.keys(data).length === 0) {
             const emptyItem = document.createElement('div');
