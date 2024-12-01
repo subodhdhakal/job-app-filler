@@ -14,14 +14,48 @@
             color: #ffffff;
         }
 
+        body.disabled .form-content {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        body.disabled .form-content input,
+        body.disabled .form-content button {
+            cursor: not-allowed;
+        }
+
+        .status-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 4px;
+            text-align: center;
+            background-color: #dc3545;
+            color: white;
+            font-size: 12px;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        body.disabled .status-indicator {
+            transform: translateY(0);
+        }
+
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
+            pointer-events: auto !important;
         }
 
-        .theme-toggle {
+        .header-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .theme-toggle, .power-toggle {
             cursor: pointer;
             padding: 5px;
             border-radius: 50%;
@@ -32,12 +66,27 @@
             justify-content: center;
         }
 
-        .theme-toggle:hover {
+        .theme-toggle:hover, .power-toggle:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
 
-        .dark-mode .theme-toggle:hover {
+        .dark-mode .theme-toggle:hover,
+        .dark-mode .power-toggle:hover {
             background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .power-toggle .power-icon {
+            width: 20px;
+            height: 20px;
+            stroke: #45a049;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.3s ease;
+        }
+
+        .power-toggle.off .power-icon {
+            stroke: #dc3545;
         }
 
         .form-group {
@@ -117,66 +166,77 @@
     </style>
 </head>
 <body>
+    <div class="status-indicator">Extension Disabled</div>
     <div class="header">
         <h2>Job Application Info</h2>
-        <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
-            <svg class="moon-icon" viewBox="0 0 24 24">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-            <svg class="sun-icon" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/>
-                <line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/>
-                <line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-        </button>
+        <div class="header-buttons">
+            <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                <svg class="moon-icon" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg class="sun-icon" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
+            <button class="power-toggle" id="powerToggle" title="Toggle extension">
+                <svg class="power-icon" viewBox="0 0 24 24">
+                    <path d="M18.36 6.64a9 9 0 1 1-12.73 0"/>
+                    <line x1="12" y1="2" x2="12" y2="12"/>
+                </svg>
+            </button>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" />
+    <div class="form-content">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" />
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" />
+        </div>
+        <div class="form-group">
+            <label for="linkedin">LinkedIn:</label>
+            <input type="url" id="linkedin" />
+        </div>
+        <div class="form-group">
+            <label for="github">GitHub:</label>
+            <input type="url" id="github" />
+        </div>
+        <div class="form-group">
+            <label for="website">Website:</label>
+            <input type="url" id="website" />
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" />
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" />
+        </div>
+        <div class="form-group">
+            <label for="zipcode">Zip Code:</label>
+            <input type="text" id="zipcode" />
+        </div>
+        <button id="saveButton">Save Information</button>
     </div>
-    <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" />
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" />
-    </div>
-    <div class="form-group">
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" />
-    </div>
-    <div class="form-group">
-        <label for="linkedin">LinkedIn:</label>
-        <input type="url" id="linkedin" />
-    </div>
-    <div class="form-group">
-        <label for="github">GitHub:</label>
-        <input type="url" id="github" />
-    </div>
-    <div class="form-group">
-        <label for="website">Website:</label>
-        <input type="url" id="website" />
-    </div>
-    <div class="form-group">
-        <label for="address">Address:</label>
-        <input type="text" id="address" />
-    </div>
-    <div class="form-group">
-        <label for="city">City:</label>
-        <input type="text" id="city" />
-    </div>
-    <div class="form-group">
-        <label for="zipcode">Zip Code:</label>
-        <input type="text" id="zipcode" />
-    </div>
-    <button id="saveButton">Save Information</button>
     <script src="popup.js"></script>
 </body>
 </html>

@@ -1,3 +1,8 @@
+// Get extensionEnabled value from local store
+chrome.storage.local.get(['extensionEnabled'], function(result) {
+    isExtensionEnabled = result.extensionEnabled ?? true;
+});
+
 let activeMenu = null;
 
 // Add custom styles to the page
@@ -104,6 +109,9 @@ function showAutoFillMenu(input) {
 
 // Show menu on double-click of input fields
 document.addEventListener('dblclick', function(e) {
+    // Only show auto-fill menu if extension is enabled
+    if (!isExtensionEnabled) return;
+
     const input = e.target;
     if (input.tagName === 'INPUT' && input.type !== 'submit' && input.type !== 'button') {
         e.preventDefault();
@@ -124,5 +132,12 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && activeMenu) {
         activeMenu.remove();
         activeMenu = null;
+    }
+});
+
+// Listener to disable extension on power off click
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.action === 'updateExtensionState') {
+        isExtensionEnabled = request.enabled;
     }
 });
