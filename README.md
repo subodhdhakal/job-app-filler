@@ -5,15 +5,15 @@ This chrome extension helps you fill any kind of online job application faster a
 # Extension Screenshots
 Extension Mode | Dark Disabled | Normal Disabled | Dark Enabled
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![Dark Disabled](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/job-app-filler/assets/images/sc1-dark.png) | ![Normal Disabled](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/job-app-filler/assets/images/sc2.png) | ![Dark Enabled](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/job-app-filler/assets/images/sc3-enabled.png)
+![Dark Disabled](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/assets/images/sc1-dark.png) | ![Normal Disabled](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/assets/images/sc2.png) | ![Dark Enabled](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/assets/images/sc3-enabled.png)
 
 # How it Works
 
 ## 1. Load the extension to the Chrome Browser (Need To Enable Developer Tools)
-![Load Extension](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/job-app-filler/assets/images/load-extension.png)
+![Load Extension](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/assets/images/load-extension.png)
 
 ## 2. Fill The Extension Form and Double Click on Any Text Box To Activate the Extension
 
 Fill and Save the Form  |       Double click on any text box and the extension will activate
 :------------------------:|   :-------------------------------------------------------------:
-![Form Fill](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/job-app-filler/assets/images/fill-form.png) <hr style="border: none; border-top: 2px double #000; margin: 10px 0;"/> | ![Double Click](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/job-app-filler/assets/images/double-click.png)
+![Form Fill](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/assets/images/fill-form.png) <hr style="border: none; border-top: 2px double #000; margin: 10px 0;"/> | ![Double Click](https://raw.githubusercontent.com/subodhdhakal/job-app-filler/main/assets/images/double-click.png)
