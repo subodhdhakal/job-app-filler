@@ -1,5 +1,5 @@
-# Job-App-Filler Extension
-This extension helps you fill any kind of online job application faster and easier.
+# Job-App-Filler Chrome Extension
+This chrome extension helps you fill any kind of online job application faster and easier.
 [Watch the Job App filter Intro Video](https://github.com/subodhdhakal/job-app-filler/blob/main/assets/videos/Job%20App%20Filler%20Intro.mp4)
 
 # Extension Screenshots
@@ -9,7 +9,7 @@ Extension Mode = Dark Disabled            |  Extension Mode = Normal Disabled   
 
 # How it Works
 
-## 1. Load the extension to the Browser (Need To Enable Developer Tools)
+## 1. Load the extension to the Chrome Browser (Need To Enable Developer Tools)
 ![Load Extension](/job-app-filler/assets/images/load-extension.png)
 
 ## 2. Fill The Extension Form and Double Click on Any Text Box To Activate the Extension
